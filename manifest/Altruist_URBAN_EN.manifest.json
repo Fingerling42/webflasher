@@ -2,6 +2,9 @@
   "name": "airrohr-firmware_en",
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 10,
+  "channel": "stable",
+  "version": "legacy build",
+  "commit": "unknown",
   "description": "This firmware is for the Altruist Air Quality Monitoring Sensor's Urban (Outdoor) Module.",
   "builds": [
     {
