@@ -136,6 +136,22 @@ document.addEventListener("DOMContentLoaded", () => {
     return isUrbanFirmware && chips.value === 'ESP32-C3';
   };
 
+  const normalizeManifestMetadata = (manifestResult) => {
+    const normalizeValue = (value, ignoredValues = []) => {
+      const text = typeof value === 'string' ? value.trim() : '';
+      if (!text || ignoredValues.includes(text.toLowerCase())) {
+        return '';
+      }
+      return text;
+    };
+
+    return {
+      channel: normalizeValue(manifestResult.channel),
+      version: normalizeValue(manifestResult.version, ['legacy build']),
+      commit: normalizeValue(manifestResult.commit, ['unknown']),
+    };
+  };
+
   const renderManifestMessage = () => {
     if (!activeManifestKey || unsupported) {
       return;
@@ -184,7 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const manifestJSON = await fetch(`./manifest/${manifest}.manifest.json`, { cache: 'no-store' })
     const manifestResult = await manifestJSON.json();
-    const manifestCacheKey = [manifestResult.version, manifestResult.commit]
+    const manifestMetadata = normalizeManifestMetadata(manifestResult);
+    const manifestCacheKey = [manifestMetadata.version, manifestMetadata.commit]
       .filter(Boolean)
       .join('-');
     const manifestURL = `./manifest/${manifest}.manifest.json`;
@@ -214,11 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // display information above selects
     activeManifestKey = manifest;
     activeManifestDefaultDescription = manifestResult.description;
-    activeManifestMetadata = {
-      channel: manifestResult.channel,
-      version: manifestResult.version,
-      commit: manifestResult.commit,
-    };
+    activeManifestMetadata = manifestMetadata;
 
     msg.classList.remove('invisible');
 
