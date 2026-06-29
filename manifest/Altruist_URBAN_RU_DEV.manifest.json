@@ -1,0 +1,22 @@
+{
+  "name": "airrohr-firmware_beta",
+  "new_install_prompt_erase": true,
+  "new_install_improv_wait_time": 10,
+  "channel": "testing",
+  "version": "legacy build",
+  "commit": "9c5d95e",
+  "description": "Build your DIY sensor and become part of the worldwide, open data & civictech network. With Airrohr you can measure air pollution yourself.",
+  "builds": [
+    {
+      "chipFamily": "ESP32-C6",
+      "chipLabel": "ESP32-C6",
+      "improv": true,
+      "parts": [
+        { "path": "../firmware/Altruist/latest32c6urb_boot.bin?v=R_2026-04.02", "offset": 0 },
+        { "path": "../firmware/Altruist/latest32c6urb_part.bin?v=R_2026-04.02", "offset": 32768 },
+        { "path": "../firmware/Altruist/boot_app0.bin?v=R_2026-04.02", "offset": 57344 },
+        { "path": "../firmware/Altruist/latest32c6urb_ru_testing.bin?v=R_2026-04.02-9c5d95e", "offset": 65536 }
+      ]
+    }
+  ]
+}

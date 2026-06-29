@@ -16,7 +16,9 @@ MANIFESTS = {
     ),
     ("testing", "urban"): (
         "Altruist_URBAN_EN_TESTING.manifest.json",
+        "Altruist_URBAN_EN_DEV.manifest.json",
         "Altruist_URBAN_RU_TESTING.manifest.json",
+        "Altruist_URBAN_RU_DEV.manifest.json",
     ),
     ("stable", "insight"): (
         "Altruist_INSIGHT_EN.manifest.json",
@@ -24,7 +26,9 @@ MANIFESTS = {
     ),
     ("testing", "insight"): (
         "Altruist_INSIGHT_EN_TESTING.manifest.json",
+        "Altruist_INSIGHT_EN_DEV.manifest.json",
         "Altruist_INSIGHT_RU_TESTING.manifest.json",
+        "Altruist_INSIGHT_RU_DEV.manifest.json",
     ),
 }
 COMMIT_PATTERN = re.compile(r"^[0-9a-fA-F]{7,40}$")

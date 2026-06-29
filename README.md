@@ -14,6 +14,10 @@ Insight. The selected interface language chooses the matching EN or RU
 manifest. Testing firmware is intended for validation before promotion to
 Stable and is marked with a warning in the installer.
 
+Legacy `*_DEV.manifest.json` Altruist URLs are kept as compatibility aliases for
+the corresponding Testing manifests, but they are no longer shown in the
+installer UI.
+
 CI-published Altruist manifests show the firmware version and source commit.
 Firmware CI updates this metadata and the cache-busting query with:
 
