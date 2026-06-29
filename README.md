@@ -13,6 +13,8 @@ The installer provides Stable and Testing firmware for Altruist Urban and
 Insight. The selected interface language chooses the matching EN or RU
 manifest. Testing firmware is intended for validation before promotion to
 Stable and is marked with a warning in the installer.
+Urban manifests include both ESP32-C3 and ESP32-C6 builds; Insight is ESP32-C6
+only.
 
 Legacy `*_DEV.manifest.json` Altruist URLs are kept as compatibility aliases for
 the corresponding Testing manifests, but they are no longer shown in the

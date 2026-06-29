@@ -8,6 +8,17 @@
   "description": "Build your DIY sensor and become part of the worldwide, open data & civictech network. With Airrohr you can measure air pollution yourself.",
   "builds": [
     {
+      "chipFamily": "ESP32-C3",
+      "chipLabel": "ESP32-C3 (OLD_VERSION_ALTRUIST)",
+      "improv": true,
+      "parts": [
+        { "path": "../firmware/Altruist/bootloader.bin?v=R_2026-04.04", "offset": 0 },
+        { "path": "../firmware/Altruist/partitions.bin?v=R_2026-04.04", "offset": 32768 },
+        { "path": "../firmware/Altruist/boot_app0.bin?v=R_2026-04.04", "offset": 57344 },
+        { "path": "../firmware/Altruist/latest32c3_ru_testing.bin?v=R_2026-04.04-9c5d95e", "offset": 65536 }
+      ]
+    },
+    {
       "chipFamily": "ESP32-C6",
       "chipLabel": "ESP32-C6",
       "improv": true,
