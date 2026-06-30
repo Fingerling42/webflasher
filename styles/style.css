@@ -257,6 +257,7 @@ h4 {
 
 .msg .description {
   margin: 0;
+  white-space: pre-line;
 }
 
 .msg .description a {
@@ -470,4 +471,3 @@ h4 {
     font-size: calc(var(--base-font-size) * 2);
   }
 }
-

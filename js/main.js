@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentLang = 'en';
   let activeManifestKey = '';
   let activeManifestDefaultDescription = '';
+  let activeManifestMetadata = {};
   const i18n = window.WEBFLASHER_I18N || {
     en: { selectChip: 'Select chip', manifestDescriptions: {}, firmwareLabels: {} }
   };
@@ -57,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     msg.classList.add('invisible');
     activeManifestKey = '';
     activeManifestDefaultDescription = '';
+    activeManifestMetadata = {};
     setChipPlaceholder();
     chips.style.display = "block";
     document.querySelector('.select-wrapper').querySelector('esp-web-install-button').classList.remove('ready');
@@ -134,6 +136,22 @@ document.addEventListener("DOMContentLoaded", () => {
     return isUrbanFirmware && chips.value === 'ESP32-C3';
   };
 
+  const normalizeManifestMetadata = (manifestResult) => {
+    const normalizeValue = (value, ignoredValues = []) => {
+      const text = typeof value === 'string' ? value.trim() : '';
+      if (!text || ignoredValues.includes(text.toLowerCase())) {
+        return '';
+      }
+      return text;
+    };
+
+    return {
+      channel: normalizeValue(manifestResult.channel),
+      version: normalizeValue(manifestResult.version, ['legacy build']),
+      commit: normalizeValue(manifestResult.commit, ['unknown']),
+    };
+  };
+
   const renderManifestMessage = () => {
     if (!activeManifestKey || unsupported) {
       return;
@@ -141,14 +159,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const baseDescription = getLocalizedManifestDescription(activeManifestKey, activeManifestDefaultDescription);
     const notice = shouldShowUrbanC3Notice() ? i18n[currentLang].urbanC3Notice : '';
-    msgContainer.textContent = notice ? `${baseDescription}\n\n${notice}` : baseDescription;
+    const lines = [baseDescription];
+
+    if (activeManifestMetadata.channel === 'testing') {
+      lines.push(i18n[currentLang].testingWarning);
+    }
+
+    const buildInfo = [];
+    if (activeManifestMetadata.version) {
+      buildInfo.push(`${i18n[currentLang].versionLabel}: ${activeManifestMetadata.version}`);
+    }
+    if (activeManifestMetadata.commit) {
+      buildInfo.push(`${i18n[currentLang].commitLabel}: ${activeManifestMetadata.commit}`);
+    }
+    if (buildInfo.length) {
+      lines.push(buildInfo.join(' | '));
+    }
+    if (notice) {
+      lines.push(notice);
+    }
+
+    msgContainer.textContent = lines.join('\n\n');
   };
 
 
 
   firmware.addEventListener("change", (e) => {
-    const button = document.querySelector('.select-wrapper').querySelector('esp-web-install-button');
-    button.manifest = `./manifest/${e.target.value}.manifest.json`;
     addManifestInfo(e.target.value)
   });
 
@@ -162,12 +198,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // displaying all needed information
   const addManifestInfo = async (manifest) => {
 
-    const manifestJSON = await fetch(`./manifest/${manifest}.manifest.json`)
+    const manifestJSON = await fetch(`./manifest/${manifest}.manifest.json`, { cache: 'no-store' })
     const manifestResult = await manifestJSON.json();
+    const manifestMetadata = normalizeManifestMetadata(manifestResult);
+    const manifestCacheKey = [manifestMetadata.version, manifestMetadata.commit]
+      .filter(Boolean)
+      .join('-');
+    const manifestURL = `./manifest/${manifest}.manifest.json`;
+    const button = document.querySelector('.select-wrapper').querySelector('esp-web-install-button');
+    button.manifest = manifestCacheKey
+      ? `${manifestURL}?v=${encodeURIComponent(manifestCacheKey)}`
+      : manifestURL;
 
     setChipPlaceholder();
     chips.style.display="block"
-    document.querySelector('.select-wrapper').querySelector('esp-web-install-button').classList.remove('ready')
+    button.classList.remove('ready')
 
     // adding chip options
     const options = manifestResult.builds;
@@ -179,13 +224,14 @@ document.addEventListener("DOMContentLoaded", () => {
         chips.appendChild(opt);
       })
     } else {
-      document.querySelector('.select-wrapper').querySelector('esp-web-install-button').classList.add('ready')
+      button.classList.add('ready')
       chips.style.display="none";
     }
 
     // display information above selects
     activeManifestKey = manifest;
     activeManifestDefaultDescription = manifestResult.description;
+    activeManifestMetadata = manifestMetadata;
 
     msg.classList.remove('invisible');
 

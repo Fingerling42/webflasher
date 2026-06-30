@@ -2,6 +2,9 @@
   "name": "altruist-insight",
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 10,
+  "channel": "stable",
+  "version": "legacy build",
+  "commit": "unknown",
   "description": "Firmware for the Altruist Air Quality Monitoring Sensor's Insight Module.",
   "builds": [
     {

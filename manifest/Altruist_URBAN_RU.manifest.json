@@ -2,6 +2,9 @@
   "name": "airrohr-firmware_beta",
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 10,
+  "channel": "stable",
+  "version": "legacy build",
+  "commit": "unknown",
   "description": "Build your DIY sensor and become part of the worldwide, open data & civictech network. With Airrohr you can measure air pollution yourself.",
   "builds": [
     {
