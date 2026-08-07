@@ -4,7 +4,7 @@
   "new_install_improv_wait_time": 10,
   "channel": "testing",
   "version": "R-INS_2026-07-08",
-  "commit": "c997d53",
+  "commit": "3e2ed16",
   "description": "Firmware for the Altruist Air Quality Monitoring Sensor's Insight Module.",
   "builds": [
     {
@@ -13,19 +13,19 @@
       "improv": true,
       "parts": [
         {
-          "path": "../firmware/Altruist/latest32c6ins_boot.bin?v=R-INS_2026-07-08-c997d53",
+          "path": "../firmware/Altruist/latest32c6ins_boot.bin?v=R-INS_2026-07-08-3e2ed16",
           "offset": 0
         },
         {
-          "path": "../firmware/Altruist/latest32c6ins_part.bin?v=R-INS_2026-07-08-c997d53",
+          "path": "../firmware/Altruist/latest32c6ins_part.bin?v=R-INS_2026-07-08-3e2ed16",
           "offset": 32768
         },
         {
-          "path": "../firmware/Altruist/boot_app0.bin?v=R-INS_2026-07-08-c997d53",
+          "path": "../firmware/Altruist/boot_app0.bin?v=R-INS_2026-07-08-3e2ed16",
           "offset": 57344
         },
         {
-          "path": "../firmware/Altruist/latest32c6ins_en_testing.bin?v=R-INS_2026-07-08-c997d53",
+          "path": "../firmware/Altruist/latest32c6ins_en_testing.bin?v=R-INS_2026-07-08-3e2ed16",
           "offset": 65536
         }
       ]
