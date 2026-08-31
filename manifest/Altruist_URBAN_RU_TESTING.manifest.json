@@ -3,8 +3,8 @@
   "new_install_prompt_erase": true,
   "new_install_improv_wait_time": 10,
   "channel": "testing",
-  "version": "R-URB_2026-07-08",
-  "commit": "4eeaf86",
+  "version": "R-URB_2026-09",
+  "commit": "f09abdd",
   "description": "Build your DIY sensor and become part of the worldwide, open data & civictech network. With Airrohr you can measure air pollution yourself.",
   "builds": [
     {
@@ -13,19 +13,19 @@
       "improv": true,
       "parts": [
         {
-          "path": "../firmware/Altruist/bootloader.bin?v=R-URB_2026-07-08-4eeaf86",
+          "path": "../firmware/Altruist/bootloader.bin?v=R-URB_2026-09-f09abdd",
           "offset": 0
         },
         {
-          "path": "../firmware/Altruist/partitions.bin?v=R-URB_2026-07-08-4eeaf86",
+          "path": "../firmware/Altruist/partitions.bin?v=R-URB_2026-09-f09abdd",
           "offset": 32768
         },
         {
-          "path": "../firmware/Altruist/boot_app0.bin?v=R-URB_2026-07-08-4eeaf86",
+          "path": "../firmware/Altruist/boot_app0.bin?v=R-URB_2026-09-f09abdd",
           "offset": 57344
         },
         {
-          "path": "../firmware/Altruist/latest32c3_ru_testing.bin?v=R-URB_2026-07-08-4eeaf86",
+          "path": "../firmware/Altruist/latest32c3_ru_testing.bin?v=R-URB_2026-09-f09abdd",
           "offset": 65536
         }
       ]
@@ -36,19 +36,19 @@
       "improv": true,
       "parts": [
         {
-          "path": "../firmware/Altruist/latest32c6urb_boot.bin?v=R-URB_2026-07-08-4eeaf86",
+          "path": "../firmware/Altruist/latest32c6urb_boot.bin?v=R-URB_2026-09-f09abdd",
           "offset": 0
         },
         {
-          "path": "../firmware/Altruist/latest32c6urb_part.bin?v=R-URB_2026-07-08-4eeaf86",
+          "path": "../firmware/Altruist/latest32c6urb_part.bin?v=R-URB_2026-09-f09abdd",
           "offset": 32768
         },
         {
-          "path": "../firmware/Altruist/boot_app0.bin?v=R-URB_2026-07-08-4eeaf86",
+          "path": "../firmware/Altruist/boot_app0.bin?v=R-URB_2026-09-f09abdd",
           "offset": 57344
         },
         {
-          "path": "../firmware/Altruist/latest32c6urb_ru_testing.bin?v=R-URB_2026-07-08-4eeaf86",
+          "path": "../firmware/Altruist/latest32c6urb_ru_testing.bin?v=R-URB_2026-09-f09abdd",
           "offset": 65536
         }
       ]
