@@ -4,7 +4,7 @@
   "new_install_improv_wait_time": 10,
   "channel": "stable",
   "version": "R-URB_2026-10",
-  "commit": "97005ba",
+  "commit": "6a1486e",
   "description": "This firmware is for the Altruist Air Quality Monitoring Sensor's Urban (Outdoor) Module.",
   "builds": [
     {
@@ -13,19 +13,19 @@
       "improv": true,
       "parts": [
         {
-          "path": "../firmware/Altruist/bootloader.bin?v=R-URB_2026-10-97005ba",
+          "path": "../firmware/Altruist/bootloader.bin?v=R-URB_2026-10-6a1486e",
           "offset": 0
         },
         {
-          "path": "../firmware/Altruist/partitions.bin?v=R-URB_2026-10-97005ba",
+          "path": "../firmware/Altruist/partitions.bin?v=R-URB_2026-10-6a1486e",
           "offset": 32768
         },
         {
-          "path": "../firmware/Altruist/boot_app0.bin?v=R-URB_2026-10-97005ba",
+          "path": "../firmware/Altruist/boot_app0.bin?v=R-URB_2026-10-6a1486e",
           "offset": 57344
         },
         {
-          "path": "../firmware/Altruist/latest32c3_en.bin?v=R-URB_2026-10-97005ba",
+          "path": "../firmware/Altruist/latest32c3_en.bin?v=R-URB_2026-10-6a1486e",
           "offset": 65536
         }
       ]
@@ -36,19 +36,19 @@
       "improv": true,
       "parts": [
         {
-          "path": "../firmware/Altruist/latest32c6urb_boot.bin?v=R-URB_2026-10-97005ba",
+          "path": "../firmware/Altruist/latest32c6urb_boot.bin?v=R-URB_2026-10-6a1486e",
           "offset": 0
         },
         {
-          "path": "../firmware/Altruist/latest32c6urb_part.bin?v=R-URB_2026-10-97005ba",
+          "path": "../firmware/Altruist/latest32c6urb_part.bin?v=R-URB_2026-10-6a1486e",
           "offset": 32768
         },
         {
-          "path": "../firmware/Altruist/boot_app0.bin?v=R-URB_2026-10-97005ba",
+          "path": "../firmware/Altruist/boot_app0.bin?v=R-URB_2026-10-6a1486e",
           "offset": 57344
         },
         {
-          "path": "../firmware/Altruist/latest32c6urb_en.bin?v=R-URB_2026-10-97005ba",
+          "path": "../firmware/Altruist/latest32c6urb_en.bin?v=R-URB_2026-10-6a1486e",
           "offset": 65536
         }
       ]
